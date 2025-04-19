@@ -1,0 +1,11 @@
+{
+  "importMap": "./import_map.json",
+  "allowJs": true,
+  "compilerOptions": {
+    "strict": true
+  },
+  "tasks": {
+    "start": "deno run -A test.ts",
+    "dev": "deno run -A --watch test.ts"
+  }
+}
