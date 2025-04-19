@@ -1,7 +1,7 @@
 {
   "version": "4",
   "specifiers": {
-    "npm:tiny-ts-parser@*": "0.1.1"
+    "npm:@typescript-eslint/typescript-estree@*": "8.30.1_typescript@5.8.3"
   },
   "npm": {
     "@nodelib/fs.scandir@2.1.5": {
@@ -146,12 +146,6 @@
     "semver@7.7.1": {
       "integrity": "sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA=="
     },
-    "tiny-ts-parser@0.1.1": {
-      "integrity": "sha512-09KjW4HEnTYmhitXna2/i1o/BDu9aKKcjH7j0L8AZQlYJ5fl96NaTTCAkOC8XEmU2glR3YyQLXfwHDaaIt+LcA==",
-      "dependencies": [
-        "@typescript-eslint/typescript-estree"
-      ]
-    },
     "to-regex-range@5.0.1": {
       "integrity": "sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==",
       "dependencies": [
@@ -170,7 +164,7 @@
   },
   "workspace": {
     "dependencies": [
-      "npm:tiny-ts-parser@*"
+      "npm:@typescript-eslint/typescript-estree@*"
     ]
   }
 }
