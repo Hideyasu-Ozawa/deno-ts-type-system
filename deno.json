@@ -1,13 +1,16 @@
 {
   "imports": {
-    "@typescript-eslint/typescript-estree": "npm:@typescript-eslint/typescript-estree"
+    "@typescript-eslint/typescript-estree": "npm:@typescript-eslint/typescript-estree",
+    "@/": "./",
+    "@src/": "./src/",
+    "@lib/": "./lib/"
   },
   "allowJs": true,
   "compilerOptions": {
     "strict": true
   },
   "tasks": {
-    "start": "deno run -A test.ts",
-    "dev": "deno run -A --watch test.ts"
+    "start": "deno run -A index.ts",
+    "dev": "deno run -A --watch index.ts"
   }
 }
