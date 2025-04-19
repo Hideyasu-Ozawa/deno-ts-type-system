@@ -11,6 +11,7 @@
   },
   "tasks": {
     "start": "deno run -A index.ts",
-    "dev": "deno run -A --watch index.ts"
+    "dev": "deno run -A --watch index.ts",
+    "test": "deno test -A ./test/"
   }
 }

@@ -1,15 +1,15 @@
-import { TinyTsParser } from "@/index.ts";
+// import { TinyTsParser } from "@/index.ts";
 
-type Type = { tag: "Boolean" } | { tag: "Number" };
+export type Type = { tag: "Boolean" } | { tag: "Number" };
 
-type Term =
+export type Term =
   | { tag: "true" }
   | { tag: "false" }
   | { tag: "if"; cond: Term; thn: Term; els: Term }
   | { tag: "number"; n: number }
   | { tag: "add"; left: Term; right: Term };
 
-function typecheck(t: Term): Type {
+export function typecheck(t: Term): Type {
   switch (t.tag) {
     case "true":
       return { tag: "Boolean" };
@@ -38,4 +38,6 @@ function typecheck(t: Term): Type {
 }
 
 // console.log(typecheck(TinyTsParser.parseArith("1 + 2"))); // { tag: "Number" }
-console.log(typecheck(TinyTsParser.parseArith("1 + true"))); // Uncaught (in promise) "number expected"
+// console.log(typecheck(TinyTsParser.parseArith("1 + true"))); // Uncaught (in promise) "number expected"
+// console.log(typecheck(TinyTsParser.parseArith("true"))); // { tag: "Boolean" }
+// console.log(typecheck(TinyTsParser.parseArith("false"))); // { tag: "Boolean" }
