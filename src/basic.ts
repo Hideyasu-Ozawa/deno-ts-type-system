@@ -61,6 +61,7 @@ export function typecheck(t: Term, tyEnv: TypeEnv): Type {
       return { tag: "Number" };
     }
     case "var": {
+      // console.log("tyEnv in var", tyEnv);
       if (tyEnv[t.name] === undefined) {
         throw new Error(`unknown variable: ${t.name}`);
       }
@@ -68,10 +69,14 @@ export function typecheck(t: Term, tyEnv: TypeEnv): Type {
     }
     case "func": {
       const newTyEnv = { ...tyEnv };
+      // console.log("tyEnv", tyEnv);
       for (const { name, type } of t.params) {
         newTyEnv[name] = type;
+        // tyEnv[name] = type;
+        // console.log("tyEnv", tyEnv);
       }
       const retType = typecheck(t.body, newTyEnv);
+      // const retType = typecheck(t.body, tyEnv);
       return { tag: "Func", params: t.params, retType };
     }
     case "call": {
@@ -108,7 +113,11 @@ export function typecheck(t: Term, tyEnv: TypeEnv): Type {
 // console.log(
 //   typecheck(TinyTsParser.parseBasic("( (x: number) => 42)(1,2,3)"), {})
 // );
-console.dir(
-  typecheck(TinyTsParser.parseBasic("(f: (x: number) => number) => 1"), {}),
-  { depth: null }
-);
+// console.dir(
+//   typecheck(TinyTsParser.parseBasic("(f: (x: number) => number) => 1"), {}),
+//   { depth: null }
+// );
+// console.log(TinyTsParser.parseBasic("( (x: number) => 1)(x)"), {});
+// case "func"の中でtyEnvを更新している
+// のちのcase "var"の中で更新されたtyEnvの存在すべきでない{ x: { tag: "Number" } }を見てしまう
+console.log(typecheck(TinyTsParser.parseBasic("( (x: number) => 1)(x)"), {}));
